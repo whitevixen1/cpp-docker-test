@@ -38,7 +38,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake .. -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake
+        cmake .. -DCMAKE_TOOLCHAIN_FILE=${GITHUB_WORKSPACE}/vcpkg/scripts/buildsystems/vcpkg.cmake
         cmake --build .
 
     - name: Run tests
