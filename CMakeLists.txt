@@ -1,3 +1,5 @@
+include(FetchContent)
+
 cmake_minimum_required(VERSION 3.10)
 
 # プロジェクト名と使用する言語
@@ -11,6 +13,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(myapp src/main.cpp)
 
 # GoogleTest を利用したテスト設定
+# GoogleTest を自動でダウンロード＆ビルド
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/release-1.14.0.zip
+)
+# 既存プロジェクトに組み込み
+FetchContent_MakeAvailable(googletest)
+
 enable_testing()
 
 # テスト用の実行ファイル
@@ -20,7 +30,7 @@ add_executable(test2 tests/test2.cpp)
 add_executable(test3 tests/test3.cpp)
 
 # GoogleTest ライブラリをリンク
-find_package(GTest REQUIRED)
+#find_package(GTest REQUIRED)
 target_link_libraries(test_sample GTest::gtest GTest::gtest_main pthread)
 target_link_libraries(test1 GTest::gtest GTest::gtest_main pthread)
 target_link_libraries(test2 GTest::gtest GTest::gtest_main pthread)
