@@ -16,7 +16,7 @@ add_executable(myapp src/main.cpp)
 # GoogleTest を自動でダウンロード＆ビルド
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/release-1.14.0.zip
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
 )
 # 既存プロジェクトに組み込み
 FetchContent_MakeAvailable(googletest)
